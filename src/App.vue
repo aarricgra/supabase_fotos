@@ -3,6 +3,8 @@
 </script>
 
 <template>
+  <router-link to="/home">Lista</router-link>
+  <router-link to="/insert">Añadir</router-link>
   <RouterView />
 </template>
 
