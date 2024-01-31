@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <router-link to="/home">Lista</router-link>
-  <router-link to="/insert">Añadir</router-link>
-  <RouterView />
+  <RouterView style="margin-top: 30px"/>
 </template>
 
 <style scoped>
