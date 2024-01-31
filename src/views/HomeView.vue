@@ -1,23 +1,21 @@
 <script>
 import { supabase } from '@/lib/supabaseClient'
-import { ref, onMounted } from 'vue'
-const fotos = ref([])
+import { ref } from 'vue'
+
 export default {
   data(){
     return{
-      desc :"",
-      img:""
+      img:"",
+      desc:"",
+      fotos:[]
     }
+  },
+  async mounted(){
+    const { data } = await supabase.from('Fotos').select()
+    this.fotos = data
+    console.log(this.fotos)
   }
 }
-async function getFotos() {
-  const { data } = await supabase.from('Fotos').select()
-  fotos.value = data
-}
-
-onMounted(() => {
-  getFotos()
-})
 </script>
 
 <template>
@@ -39,7 +37,8 @@ onMounted(() => {
         </v-col>
       </v-row>
     </form>
-    <div v-for="foto in fotos" :key="foto.id">
+<!--    {{img}}/{{desc}}-->
+    <div v-for="foto in this.fotos" :key="foto.id">
       <div style="width: 100%;">
         <h1 style="text-align: center">Descripción: {{foto.desc}}</h1>
       </div>
