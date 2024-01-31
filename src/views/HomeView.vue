@@ -1,6 +1,5 @@
 <script>
 import { supabase } from '@/lib/supabaseClient'
-import { ref } from 'vue'
 
 export default {
   data(){
@@ -50,7 +49,3 @@ export default {
     </div>
   </main>
 </template>
-
-<script>
-
-</script>
